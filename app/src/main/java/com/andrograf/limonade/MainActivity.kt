@@ -99,14 +99,14 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
         Button(
             onClick = { if(step < 4) step++ else step = 1 },
             shape = RoundedCornerShape(15),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(137, 236, 171)),
             //modifier =  Modifier.wrapContentSize()
         ) {
             Image(
                 painter = painterResource(id = imageResource),
                 contentDescription = imageDescription.toString(),
-                modifier = Modifier
-                    .background(Color(137, 236, 171))
+                //modifier = Modifier
+                  //  .background(Color(137, 236, 171))
                   //.padding(35.dp, 15.dp)
             )
         }
