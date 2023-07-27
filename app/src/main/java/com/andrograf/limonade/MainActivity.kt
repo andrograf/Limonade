@@ -114,7 +114,7 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
                         step++
                     }
                 } else {
-                    taps = (3..6).random()
+                    taps = (2..6).random()
                     step = starterValue
                 }
             },
