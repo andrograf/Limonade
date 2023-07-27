@@ -1,6 +1,6 @@
 # Lemonade Maker
 ### Description
-Juice lemons and make lemonade with our easy-to-use Android Jetpack Compose app. 
+Juice lemons and make lemonade with this easy-to-use Android Jetpack Compose app. 
 Tap the image on the screen to interactively squeeze lemons and turn them into a refreshing glass of digital lemonade.
 
 ### Features
