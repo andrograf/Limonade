@@ -106,7 +106,7 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
                 painter = painterResource(id = imageResource),
                 contentDescription = imageDescription.toString(),
                 modifier = Modifier
-                    .background(MaterialTheme.colorScheme.tertiaryContainer)
+                    .background(Color(137, 236, 171))
                   //.padding(35.dp, 15.dp)
             )
         }
