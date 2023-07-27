@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.andrograf.limonade
 
@@ -58,7 +58,7 @@ fun NavBar(){
             )
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = Color.Yellow,
             titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
