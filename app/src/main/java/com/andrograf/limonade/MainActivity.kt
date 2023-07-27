@@ -117,29 +117,30 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
             style = MaterialTheme.typography.bodyLarge
         )
     }
-
-
-
-
 }
+
 
 @Composable
-fun LemonadeApp(modifier: Modifier = Modifier) {
-
-    //NavBar()
-        //modifier = modifier.padding(45.dp,250.dp,0.dp,0.dp),
-    InteractiveImageWithText(modifier)
+fun Test(modifier: Modifier = Modifier){
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "text1")
+        Text(text = "text2")
+    }
 }
+
 
 @Preview(
     showBackground = true,
     showSystemUi = true
 )
 @Composable
-fun LemonadePreview() {
-    LemonadeApp(
-        modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.Center)
-    )
+fun LemonadeApp(modifier: Modifier = Modifier
+    .fillMaxSize()
+    .wrapContentSize(Alignment.Center)
+) {
+    NavBar()
+    InteractiveImageWithText(modifier)
 }
