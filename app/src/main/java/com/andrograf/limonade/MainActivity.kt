@@ -98,16 +98,18 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
     ) {
         Button(
             onClick = { if(step < 4) step++ else step = 1 },
-            shape = RoundedCornerShape(15),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(137, 236, 171)),
-            //modifier =  Modifier.wrapContentSize()
+            shape = RoundedCornerShape(percent = 15),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(
+                    red = 137,
+                    green = 236,
+                    blue = 171
+                    )
+            ),
         ) {
             Image(
                 painter = painterResource(id = imageResource),
                 contentDescription = imageDescription.toString(),
-                //modifier = Modifier
-                  //  .background(Color(137, 236, 171))
-                  //.padding(35.dp, 15.dp)
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
