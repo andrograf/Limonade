@@ -54,7 +54,7 @@ fun NavBar(){
         CenterAlignedTopAppBar(
             title = {
                 Text(
-                    text = "Lemonade",
+                    text = "Lemonade Maker",
                     fontWeight = FontWeight.Bold
                 )
             },
