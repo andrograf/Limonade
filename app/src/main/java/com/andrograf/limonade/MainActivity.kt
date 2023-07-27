@@ -50,20 +50,23 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavBar(){
-    CenterAlignedTopAppBar(
-        title = {
-            Text(
-                text = "Lemonade",
-                fontWeight = FontWeight.Bold
+    Box{
+        CenterAlignedTopAppBar(
+            title = {
+                Text(
+                    text = "Lemonade",
+                    fontWeight = FontWeight.Bold
+                )
+            },
+            colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = Color.Yellow,
+                titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
             )
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = Color.Yellow,
-            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
-    )
+    }
+
 }
 
 @Composable
@@ -91,14 +94,13 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
 
     Column(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
             onClick = { if(step < 4) step++ else step = 1 },
             shape = RoundedCornerShape(15),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
-            modifier =  modifier.wrapContentSize()
+            //modifier =  Modifier.wrapContentSize()
         ) {
             Image(
                 painter = painterResource(id = imageResource),
@@ -108,7 +110,7 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
                   //.padding(35.dp, 15.dp)
             )
         }
-        Spacer(modifier = modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = stringResource(textDescription),
             color = Color.Black,
@@ -123,16 +125,10 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
 
 @Composable
 fun LemonadeApp(modifier: Modifier = Modifier) {
-    NavBar()
-    Column(
-        modifier = modifier.padding(45.dp,250.dp,0.dp,0.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
 
-        InteractiveImageWithText()
-    }
-
+    //NavBar()
+        //modifier = modifier.padding(45.dp,250.dp,0.dp,0.dp),
+    InteractiveImageWithText(modifier)
 }
 
 @Preview(
