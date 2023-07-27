@@ -63,7 +63,7 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
         textAlign = TextAlign.Center
     )
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { if(step < 4) step++ else step = 1 },
         modifier =  modifier.width(imageResource.dp)) {
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,
