@@ -70,21 +70,21 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
     var step by remember { mutableStateOf(starterValue) }
     var taps by remember { mutableStateOf(maxSteps - starterValue) }
 
-    var imageResource = when(step){
+    val imageResource = when(step){
 
         2 -> R.drawable.lemon_squeeze
         3 -> R.drawable.lemon_drink
         4 -> R.drawable.lemon_restart
         else -> R.drawable.lemon_tree
     }
-    var imageDescription = when(step){
+    val imageDescription = when(step){
 
         2 -> R.string.lemon_content_description
         3 -> R.string.glass_content_description
         4 -> R.string.empty_glass_content_description
         else -> R.string.lemon_tree_content_description
     }
-    var textDescription = when(step){
+    val textDescription = when(step){
 
         2 -> R.string.squeeze
         3 -> R.string.drink
