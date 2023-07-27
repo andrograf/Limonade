@@ -74,25 +74,28 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
     val starterValue = 1
     val maxSteps = 4
     var step by remember { mutableStateOf(starterValue) }
-    var taps by remember { mutableStateOf(3) }
+    var taps by remember { mutableStateOf(maxSteps - starterValue) }
 
     var imageResource = when(step){
-        1 -> R.drawable.lemon_tree
+
         2 -> R.drawable.lemon_squeeze
         3 -> R.drawable.lemon_drink
-        else -> R.drawable.lemon_restart
+        4 -> R.drawable.lemon_restart
+        else -> R.drawable.lemon_tree
     }
     var imageDescription = when(step){
-        1 -> R.string.lemon_tree_content_description
+
         2 -> R.string.lemon_content_description
         3 -> R.string.glass_content_description
-        else -> R.string.empty_glass_content_description
+        4 -> R.string.empty_glass_content_description
+        else -> R.string.lemon_tree_content_description
     }
     var textDescription = when(step){
-        1 -> R.string.select
+
         2 -> R.string.squeeze
         3 -> R.string.drink
-        else -> R.string.restart
+        4 -> R.string.restart
+        else -> R.string.select
     }
 
 
@@ -103,8 +106,18 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
         Button(
             onClick = {
                 if(step < maxSteps) {
-                    step++
-                } else step = starterValue },
+
+                    if(step == 2 && taps > 0){
+                        taps--
+                    }
+                    else {
+                        step++
+                    }
+                } else {
+                    taps = (3..6).random()
+                    step = starterValue
+                }
+            },
             shape = RoundedCornerShape(percent = 15),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(
