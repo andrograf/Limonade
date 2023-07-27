@@ -135,19 +135,6 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
     }
 }
 
-
-@Composable
-fun Test(modifier: Modifier = Modifier){
-    Column(
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "text1")
-        Text(text = "text2")
-    }
-}
-
-
 @Preview(
     showBackground = true,
     showSystemUi = true
