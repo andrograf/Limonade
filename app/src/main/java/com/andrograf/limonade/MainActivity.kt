@@ -13,6 +13,10 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -33,12 +37,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun InteractiveImageWithText(modifier: Modifier = Modifier){
-    var imageResource = R.drawable.lemon_tree
-    var imageDescription = R.string.lemon_tree
-    var textDescription = R.string.select
-    /*R.drawable.lemon_squeeze
-    R.drawable.lemon_drink
-    R.drawable.lemon_restart*/
+    var step by remember { mutableStateOf(1) }
+    var imageResource = when(step){
+        1 -> R.drawable.lemon_tree
+        2 -> R.drawable.lemon_squeeze
+        3 -> R.drawable.lemon_drink
+        else -> R.drawable.lemon_restart
+    }
+    var imageDescription = when(step){
+        1 -> R.string.lemon_tree_content_description
+        2 -> R.string.lemon_content_description
+        3 -> R.string.glass_content_description
+        else -> R.string.empty_glass_content_description
+    }
+    var textDescription = when(step){
+        1 -> R.string.select
+        2 -> R.string.squeeze
+        3 -> R.string.drink
+        else -> R.string.restart
+    }
+
     Text(
         text = "Lemonade",
         //modifier = Modifier.background(Color.Yellow),
