@@ -71,7 +71,11 @@ fun NavBar(){
 
 @Composable
 fun InteractiveImageWithText(modifier: Modifier = Modifier){
-    var step by remember { mutableStateOf(1) }
+    val starterValue = 1
+    val maxSteps = 4
+    var step by remember { mutableStateOf(starterValue) }
+    var taps by remember { mutableStateOf(3) }
+
     var imageResource = when(step){
         1 -> R.drawable.lemon_tree
         2 -> R.drawable.lemon_squeeze
@@ -97,7 +101,10 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
-            onClick = { if(step < 4) step++ else step = 1 },
+            onClick = {
+                if(step < maxSteps) {
+                    step++
+                } else step = starterValue },
             shape = RoundedCornerShape(percent = 15),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(
