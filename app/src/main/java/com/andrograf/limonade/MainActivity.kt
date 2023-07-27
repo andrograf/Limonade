@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
-
 package com.andrograf.limonade
 
 import android.os.Bundle
@@ -8,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -48,6 +47,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavBar(){
     CenterAlignedTopAppBar(
@@ -88,41 +88,51 @@ fun InteractiveImageWithText(modifier: Modifier = Modifier){
         else -> R.string.restart
     }
 
-    NavBar()
 
-    /*Button(
-        onClick = { if(step < 4) step++ else step = 1 },
-        shape = RoundedCornerShape(15),
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
-        modifier =  modifier.wrapContentSize(Alignment.BottomStart).padding(10.dp)
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Column (
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ){
-
+        Button(
+            onClick = { if(step < 4) step++ else step = 1 },
+            shape = RoundedCornerShape(15),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            modifier =  modifier.wrapContentSize()
+        ) {
             Image(
                 painter = painterResource(id = imageResource),
                 contentDescription = imageDescription.toString(),
                 modifier = Modifier
-                    .padding(35.dp,15.dp)
+                    .background(MaterialTheme.colorScheme.tertiaryContainer)
+                  //.padding(35.dp, 15.dp)
             )
-            Spacer(modifier = modifier.height(16.dp))
-            Text(
-                text = stringResource(textDescription),
-                color = Color.Black,
-                style = MaterialTheme.typography.bodyLarge
-            )
-
         }
-    }*/
+        Spacer(modifier = modifier.height(16.dp))
+        Text(
+            text = stringResource(textDescription),
+            color = Color.Black,
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+
+
 
 
 }
 
 @Composable
 fun LemonadeApp(modifier: Modifier = Modifier) {
-    InteractiveImageWithText()
+    NavBar()
+    Column(
+        modifier = modifier.padding(45.dp,250.dp,0.dp,0.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+
+        InteractiveImageWithText()
+    }
+
 }
 
 @Preview(
